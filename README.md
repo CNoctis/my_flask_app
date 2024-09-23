@@ -1,98 +1,74 @@
 # My Flask App
 
-Este proyecto es una aplicación web desarrollada con Flask que sigue una estructura modular y organizada para facilitar la escalabilidad y el mantenimiento.
+This project is a web application developed with Flask that follows a modular and organized structure to facilitate scalability and maintenance.
 
-## Estructura del Proyecto
+## Project Structure
 
-El proyecto sigue una estructura organizada en módulos, lo que permite un fácil mantenimiento y expansión. A continuación, se describe cada directorio:
+The project follows an organized structure into modules, allowing for easy maintenance and expansion. Below is a description of each directory:
 
-- **my_flask_app/**  
-  Directorio raíz del proyecto.
+``` bash
+my_flask_app/
+├── app/ # Main application directory
+│   ├── db/ # Directory for database configuration and management
+│   ├── models/ # Directory for storing database models (if using an ORM)
+│   ├── modules/ # Directory to organize different modules of the application
+│   │   ├── example_1/ # Example module 1
+│   │   │   ├── controllers/ # Controllers for module 1 (handle HTTP requests)
+│   │   │   ├── services/ # Services for module 1 (business logic)
+│   │   │   └── repositories/ # Repositories for module 1 (interact with external data)
+│   │   ├── example_2/ # Example module 2
+│   │   │   ├── controllers/ # Controllers for module 2 (handle HTTP requests)
+│   │   │   ├── services/ # Services for module 2 (business logic)
+│   │   │   └── repositories/ # Repositories for module 2 (interact with external data)
+│   ├── routes/ # Application routing control
+│   │   └── __init__.py # File to make app a Python package
+│   └── __init__.py # File to make app a Python package
+└── run.py # Main file to run the Flask application
+```
 
-  - **app/**  
-    Directorio principal de la aplicación Flask.
-    
-    - **db/**  
-      Contiene la configuración y gestión de la base de datos. Aquí puedes colocar scripts o configuraciones relacionadas con la conexión y administración de la base de datos.
-    
-    - **models/**  
-      Almacena los modelos de la base de datos si estás utilizando un ORM (Object Relational Mapper), como SQLAlchemy.
-    
-    - **modules/**  
-      Directorio que organiza los diferentes módulos de la aplicación, facilitando la segmentación de funcionalidades.
-      
-      - **example1/**  
-        Módulo de ejemplo 1.
-        
-        - **controllers/**  
-          Maneja las solicitudes HTTP para el módulo 1.
-        
-        - **services/**  
-          Contiene la lógica de negocio del módulo 1.
-        
-        - **repositories/**  
-          Se encarga de la interacción con la base de datos u otros servicios de almacenamiento para el módulo 1.
-        
-      - **example2/**  
-        Módulo de ejemplo 2, con una estructura similar al módulo 1.
-        
-        - **controllers/**  
-          Maneja las solicitudes HTTP para el módulo 2.
-        
-        - **services/**  
-          Contiene la lógica de negocio del módulo 2.
-        
-        - **repositories/**  
-          Se encarga de la interacción con la base de datos u otros servicios de almacenamiento para el módulo 2.
-    
-    - **__init__.py**  
-      Archivo que convierte el directorio `app` en un paquete de Python. Aquí se puede inicializar la aplicación Flask y configurar dependencias comunes.
-  - **env.example**  
-    Archivo de ejemplo que muestra las variables de entorno necesarias para la aplicación, como `FLASK_APP` y `FLASK_DEBUG`.
-    
-  - **run.py**  
-    Archivo principal para ejecutar la aplicación Flask. Aquí es donde se inicializa la aplicación y se definen las configuraciones globales necesarias para que la aplicación funcione correctamente.
+## Project Layer Diagram
+![alt text](docs/image.png)
 
-## Instalación
+## Installation
 
-Para poner en marcha este proyecto, sigue los siguientes pasos:
+To get this project up and running, follow these steps:
 
-1. Clona este repositorio:
+1. Clone this repository:
    'git clone https://github.com/tu_usuario/my_flask_app.git'
    
-2. Crea un entorno virtual e instala las dependencias:
+2. Create a virtual environment and install the dependencies:
    'pip install -r requirements.txt'
 
-3. Crea un archivo `.env` en el directorio raíz del proyecto y agrega las siguientes configuraciones:
+3. Create a `.env` file in the root directory of the project and add the following configurations:
 
    ```env
    FLASK_APP=app
    FLASK_DEBUG=1 # 1 es el modo debug, 0 es el modo producción
    ```
    
-4. Ejecuta la aplicación:
+4. Run the application:
    'flask run.py'
 
-## Estructura Modular
+## Modular Structure
 
-Cada módulo sigue una estructura estándar que incluye:
+Each module follows a standard structure that includes:
 
-- **Controllers:** Se encargan de recibir las solicitudes HTTP y devolver las respuestas.
-- **Services:** Contienen la lógica de negocio. Aquí es donde se implementan las operaciones más complejas de la aplicación.
-- **Repositories:** Encargados de la interacción con la base de datos o cualquier otra fuente de datos.
+- **Controllers:** Responsible for receiving HTTP requests and returning responses.
+- **Services:** Contain the business logic. This is where the more complex operations of the application are implemented.
+- **Repositories:** Responsible for interacting with the database or any other data source.
 
-Este enfoque modular permite que diferentes partes de la aplicación se puedan desarrollar y mantener de manera independiente, facilitando la escalabilidad del proyecto.
+This modular approach allows different parts of the application to be developed and maintained independently, facilitating project scalability.
 
-## Contribución
+## Contribution
 
-Si deseas contribuir a este proyecto:
+If you would like to contribute to this project:
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama con tu funcionalidad: 'git checkout -b mi-nueva-funcionalidad'
-3. Haz commit de tus cambios: 'git commit -m 'Agregar nueva funcionalidad''
-4. Haz push a la rama: 'git push origin mi-nueva-funcionalidad'
-5. Envía un pull request.
+1. Fork the repository.
+2. Create a new branch with your feature:'git checkout -b my-new-feature'
+3. Haz commit de tus cambios: 'git commit -m 'Add new feature''
+4. Push to the branch: 'git push origin my-new-feature'
+5. Submit a pull request.
 
-## Licencia
+## License
 
-Este proyecto está licenciado bajo los términos de la licencia MIT.
+This project is licensed under the terms of the MIT license.
